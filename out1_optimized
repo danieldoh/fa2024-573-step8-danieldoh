@@ -1,0 +1,174 @@
+; Symbol table GLOBAL
+; Function: INT main([])
+
+; Symbol table main
+; name x type INT location -4
+; name y type INT location -8
+; name z type INT location -12
+
+.section .text
+;Current temp: null
+;IR Code: 
+MV fp, sp
+JR func_main
+HALT
+
+func_main:
+SW fp, 0(sp)
+MV fp, sp
+ADDI sp, sp, -4
+ADDI sp, sp, -12
+SW t1, 0(sp)
+ADDI sp, sp, -4
+SW t2, 0(sp)
+ADDI sp, sp, -4
+SW t3, 0(sp)
+ADDI sp, sp, -4
+SW t4, 0(sp)
+ADDI sp, sp, -4
+SW t5, 0(sp)
+ADDI sp, sp, -4
+SW t6, 0(sp)
+ADDI sp, sp, -4
+SW t7, 0(sp)
+ADDI sp, sp, -4
+SW t8, 0(sp)
+ADDI sp, sp, -4
+SW t9, 0(sp)
+ADDI sp, sp, -4
+SW t10, 0(sp)
+ADDI sp, sp, -4
+SW t11, 0(sp)
+ADDI sp, sp, -4
+SW t12, 0(sp)
+ADDI sp, sp, -4
+SW t13, 0(sp)
+ADDI sp, sp, -4
+SW t14, 0(sp)
+ADDI sp, sp, -4
+SW t15, 0(sp)
+ADDI sp, sp, -4
+SW t16, 0(sp)
+ADDI sp, sp, -4
+SW t17, 0(sp)
+ADDI sp, sp, -4
+SW t18, 0(sp)
+ADDI sp, sp, -4
+SW t19, 0(sp)
+ADDI sp, sp, -4
+SW t20, 0(sp)
+ADDI sp, sp, -4
+SW t21, 0(sp)
+ADDI sp, sp, -4
+SW t22, 0(sp)
+ADDI sp, sp, -4
+LI t1, 1
+SW t1, -4(fp)
+LI t2, 6
+SW t2, -8(fp)
+loop_1:
+LW t4, -4(fp)
+LI t3, 10
+LW t6, -4(fp)
+LI t5, 2
+DIV t7, t6, t5
+LI t8, 2
+MUL t9, t7, t8
+LW t10, -4(fp)
+BNE t9, t10, else_1
+LW t12, -8(fp)
+LI t11, 4
+MUL t13, t12, t11
+SW t13, -12(fp)
+J out_1
+else_1:
+LW t15, -8(fp)
+LI t14, 3
+MUL t16, t15, t14
+SW t16, -12(fp)
+out_1:
+LW t19, -4(fp)
+LI t18, 1
+ADD t20, t19, t18
+SW t20, -4(fp)
+LW t21, -12(fp)
+PUTI t21
+BGE t4, t3, out_2
+LW t6, -4(fp)
+LI t5, 2
+DIV t7, t6, t5
+LI t8, 2
+MUL t9, t7, t8
+LW t10, -4(fp)
+BNE t9, t10, else_1
+LW t12, -8(fp)
+LI t11, 4
+MUL t13, t12, t11
+SW t13, -12(fp)
+J out_1
+else_1:
+LW t15, -8(fp)
+LI t14, 3
+MUL t16, t15, t14
+SW t16, -12(fp)
+out_1:
+LW t19, -4(fp)
+LI t18, 1
+ADD t20, t19, t18
+SW t20, -4(fp)
+LW t21, -12(fp)
+PUTI t21
+J loop_1
+out_2:
+func_ret_main:
+ADDI sp, sp, 4
+LW t22, 0(sp)
+ADDI sp, sp, 4
+LW t21, 0(sp)
+ADDI sp, sp, 4
+LW t20, 0(sp)
+ADDI sp, sp, 4
+LW t19, 0(sp)
+ADDI sp, sp, 4
+LW t18, 0(sp)
+ADDI sp, sp, 4
+LW t17, 0(sp)
+ADDI sp, sp, 4
+LW t16, 0(sp)
+ADDI sp, sp, 4
+LW t15, 0(sp)
+ADDI sp, sp, 4
+LW t14, 0(sp)
+ADDI sp, sp, 4
+LW t13, 0(sp)
+ADDI sp, sp, 4
+LW t12, 0(sp)
+ADDI sp, sp, 4
+LW t11, 0(sp)
+ADDI sp, sp, 4
+LW t10, 0(sp)
+ADDI sp, sp, 4
+LW t9, 0(sp)
+ADDI sp, sp, 4
+LW t8, 0(sp)
+ADDI sp, sp, 4
+LW t7, 0(sp)
+ADDI sp, sp, 4
+LW t6, 0(sp)
+ADDI sp, sp, 4
+LW t5, 0(sp)
+ADDI sp, sp, 4
+LW t4, 0(sp)
+ADDI sp, sp, 4
+LW t3, 0(sp)
+ADDI sp, sp, 4
+LW t2, 0(sp)
+ADDI sp, sp, 4
+LW t1, 0(sp)
+MV sp, fp
+LW fp, 0(sp)
+RET
+
+
+
+.section .strings

@@ -1,6 +1,8 @@
 package assembly;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import compiler.Scope.InnerType;
 import compiler.Scope.SymbolTableEntry;
@@ -735,6 +737,17 @@ public class CodeGenerator extends AbstractASTVisitor<CodeObject> {
 		co.code.add(new Label(loopLabel));
 		co.code.addAll(cond.code);
 
+		Set<String> loopVariables = collectLoopVariables(slist);
+
+		CodeObject optimizedSlist = new CodeObject();
+		for (Instruction instr : slist.code) {
+			if (isLoopInvariant(instr, loopVariables)) {
+				co.code.add(instr); 
+			} else {
+				optimizedSlist.code.add(instr); 
+			}
+		}
+
 		String[] parts = cond.temp.split(" ");
 		String lefttemp = parts[0];
 		String righttemp = parts[1];
@@ -1285,6 +1298,27 @@ public class CodeGenerator extends AbstractASTVisitor<CodeObject> {
 
 		return co;
 	}
+
+	private boolean isLoopInvariant(Instruction instr, Set<String> loopVariables) {
+			for (String var : loopVariables) {
+				if (instr.getClass().toString().contains(var)) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+
+	private Set<String> collectLoopVariables(CodeObject loopCode) {
+		Set<String> vars = new HashSet<>();
+		for (Instruction instr : loopCode.code) {
+			if (instr.getDest() != null) {
+				vars.add(instr.getDest());
+			}
+		}
+		return vars;
+	}
+
 
 	/**
 	 * Generate a fresh temporary

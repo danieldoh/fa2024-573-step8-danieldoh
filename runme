@@ -7,7 +7,6 @@ then
     export PYTHONPATH=$BUILD_DIR:$PYTHONPATH
     python3 python/main.py $1 > $2
 else
-    echo "OPTION 2"
     java -cp "$CLASSPATH:classes" compiler.Compiler $1 > $2
 fi
 

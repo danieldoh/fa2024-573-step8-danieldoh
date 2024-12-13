@@ -1,2 +1,8 @@
-# fa2024-573-step8-danieldoh
-This is a step 8 for ECE 573 Project. 
+# Step 8: Optimization via Loop-Invariant Code Motion
+
+## Running ./runme
+
+```
+./runme tests/test0.uC out0_optimized
+./runme tests/test1.uC out1_optimized
+```
